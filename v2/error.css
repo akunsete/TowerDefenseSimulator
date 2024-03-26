@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(216, 216, 216);
+}
+
+.all {
+    margin: 150px auto;
+    text-align: center;
+}

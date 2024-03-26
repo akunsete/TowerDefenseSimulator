@@ -1,0 +1,243 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(79, 79, 79);
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.f1 {
+    text-align: center;
+    display: inline-flex;
+}
+
+nav {
+    background-color: #000000;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.all {
+    display: flex;
+    justify-content: center; /* Untuk membuat kontainer gambar berada di tengah secara horizontal */
+    flex-wrap: wrap;
+}
+
+.Judul {
+    font-size: 28px;
+    font-family: "Crimson Pro", serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+
+.group1 {
+    margin: 10px;
+    flex-basis: calc(auto - 0px); /* Untuk membuat gambar berukuran setengah dari lebar kontainer dengan margin 10px di antara */
+}
+
+.group1 img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.m1 {
+    margin-top: 40px;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 4px solid black;
+    width: 300px;
+}
+
+.Name {
+    margin-bottom: 14px;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #e0e0e0;
+    text-align: center;
+}
+
+.Name:hover {
+    color: rgba(199, 195, 195, 0.8);
+}
+
+.discount {
+    margin-bottom: 12px;
+    font-size: 12px;
+    text-shadow: 2px 2px 3px black;
+    color: yellow;
+    text-align: center;
+}
+
+.H1 {
+   margin-left: 110px;
+    display: inline-flex;
+}
+
+.Harga {
+    font-size: 17px;
+    color: rgba(188, 188, 188, 0.8);
+    text-align: center;
+    text-decoration: line-through rgb(191, 191, 191);
+    margin-right: 4px;
+    font-family: "Marcellus", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.Harga1 {
+    text-decoration: none;
+    color: rgb(251, 255, 0);
+}
+
+.group1:hover img {
+    transform: scale(1.1); /* Memperbesar gambar saat hover */
+    transition: transform 0.6s ease;
+}
+
+footer {
+    
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.pa1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.pa2 {
+    margin-bottom: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.f1 {
+    margin-bottom: 14px;
+}
+
+.f2 {
+    margin-left: 12px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.f2:hover {
+    font-size: 18px;
+    color: rgba(144, 144, 144, 0.6);
+    transition: font-size 0.4s;
+}
+
+.f3 {
+    font-size: 10px;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: block;
+    }
+
+    .mobile-nav .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menu-list {
+        display: none;
+    }
+
+    .toggle-menu {
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: #fff;
+    }
+
+    .toggle-menu:hover {
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 20%;
+        background-color: rgb(0,0,0,0.6);
+        transition: padding 0.4s;
+    }
+
+    .toggle-menu:focus + .menu-list {
+        display: block;
+    }
+
+    .menu-list li {
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .menu-list li a {
+        color: #fff;
+        text-decoration: none;
+    }
+    .menu-list li a:hover {
+        padding: 6px;
+        border: 2px solid gray;
+        border-radius: 8px;
+        background-color: rgb(0,0,0,0.4);
+        transition: padding 0.3s;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .mobile-nav {
+        display: none;
+    }
+
+    .desktop-nav {
+        display: block;
+    }
+
+    nav ul li a:hover {
+        padding: 6px;
+        border: 2px solid gray;
+        border-radius: 8px;
+        background-color: rgb(0,0,0,0.4);
+        transition: padding 0.5s;
+    }
+
+}

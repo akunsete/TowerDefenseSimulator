@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="LOGIN.css">
+</head>
+<body>
+  <div class="login-container">
+    <form class="login-form" action="#">
+      <h2>Login</h2>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+        <span class="error" id="usernameError"><span style="font-size: 14px;">Username is required</span></span>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <span class="error" id="passwordError"><span style="font-size: 14px;">Password is required</span></span>
+      </div>  
+      <input type="radio" id="english" name="language" required>
+      <label class="radio1" for="404">English</label>
+        <input class="radio1" type="radio" id="chinese" name="language" required>
+        <label class="radio1" for="404">China</label>
+        <span class="error" id="languageError"><span style="display: flex;margin-top: 6px;flex: 1 0 25%;flex-wrap: wrap;">Language is required</span></span>
+      <br>
+      <br>  
+      <center>
+        <a href="error.html" type="submit" id="loginButton">Login</a>
+      </center>
+    </form>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+  var radioButtons = document.querySelectorAll('input[type="radio"]');
+
+  radioButtons.forEach(function(radioButton) {
+    radioButton.addEventListener("click", function() {
+      var selectedValue = this.value;
+      var notificationMessage = "Sorry, Your Device Is Not Support The Language" ;
+
+      if ('Notification' in window) {
+        Notification.requestPermission().then(function(permission) {
+          if (permission === 'granted') {
+            new Notification(notificationMessage);
+          }
+        });
+      } else {
+        alert(notificationMessage);
+      }
+    });
+  });
+});
+
+document.getElementById('loginButton').addEventListener('click', function(event) {
+  var username = document.getElementById('username');
+  var password = document.getElementById('password');
+  var usernameError = document.getElementById('usernameError');
+  var passwordError = document.getElementById('passwordError');
+  var languageError = document.getElementById('languageError');
+  var englishRadio = document.getElementById('english');
+  var chineseRadio = document.getElementById('chinese');
+  var isValid = true;
+
+  if (username.value.trim() === '') {
+    usernameError.classList.add('active');
+    isValid = false;
+  } else {
+    usernameError.classList.remove('active');
+  }
+
+  if (password.value.trim() === '') {
+    passwordError.classList.add('active');
+    isValid = false;
+  } else {
+    passwordError.classList.remove('active');
+  }
+
+  if (!englishRadio.checked && !chineseRadio.checked) {
+    languageError.classList.add('active');
+    isValid = false;
+  } else {
+    languageError.classList.remove('active');
+  }
+
+  if (!isValid) {
+    event.preventDefault(); // Prevent default link behavior if not valid
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    var usernameInput = document.getElementById('username');
+    var passwordInput = document.getElementById('password');
+    var loginButton = document.getElementById('loginButton');
+    var usernameError = document.getElementById('usernameError');
+  var passwordError = document.getElementById('passwordError');
+    // Mengubah warna tombol sesuai dengan kondisi input
+    function updateButtonColor() {
+        if (usernameInput.value !== '' && passwordInput.value !== '') {
+            loginButton.classList.remove('red');
+            loginButton.classList.add('green');
+        } else {
+            loginButton.classList.remove('green');
+            loginButton.classList.add('red');
+        }
+    }
+
+    // Memanggil fungsi updateButtonColor saat nilai input berubah
+    usernameInput.addEventListener('input', updateButtonColor);
+    passwordInput.addEventListener('input', updateButtonColor);
+
+    // Memanggil fungsi updateButtonColor saat halaman dimuat (untuk mengatur warna awal tombol)
+    updateButtonColor();
+});
+
+  </script>
+</body>
+</html>
